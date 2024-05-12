@@ -3,7 +3,7 @@ package org.example;
 public class Bread extends Carbs{
     @Override
     public void addMacronutrient(){
-        System.out.println("Adding bread to meal plan...");
+        System.out.println("Adding bread to meal...");
     }
 
     Bread(){
