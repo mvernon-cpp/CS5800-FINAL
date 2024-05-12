@@ -1,11 +1,11 @@
 package org.example;
 
-public class Meal_Plan {
+public class Meal {
     Macronutrient protein_portion;
     Macronutrient carb_portion;
     Macronutrient fat_portion;
 
-    void prepareMeal_Plan(Protein_Factory proteinFactory,Carbs_Factory carbsFactory, Fats_Factory fatsFactory, Diet diet){
+    void prepareMeal(Protein_Factory proteinFactory,Carbs_Factory carbsFactory, Fats_Factory fatsFactory, Diet diet){
         setProtein_portion(proteinFactory.gatherMacronutrient(diet));
         setCarb_portion(carbsFactory.gatherMacronutrient(diet));
         setFat_portion(fatsFactory.gatherMacronutrient(diet));
