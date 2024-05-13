@@ -6,7 +6,7 @@ public class Customer {
     private final String address;
     private final String county;
     private final Diet diet;
-    private Meal_Plan meal_plan;
+    private Meal meal;
 
     public Customer(String name, String address, String county, String diet_plan) {
         this.name = name;
@@ -27,8 +27,8 @@ public class Customer {
         return this.county;
     }
 
-    public void setMeal(Meal_Plan meal_plan) {
-        this.meal_plan = meal_plan;
+    public void setMeal(Meal meal) {
+        this.meal = meal;
     }
 
     Diet getDiet(){
