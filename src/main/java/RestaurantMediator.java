@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Mediator {
+public class RestaurantMediator {
 
     private HashMap<String, Customer> registeredCustomers = new HashMap<>();
     private HashMap<String, Restaurant> registeredRestaurants = new HashMap<>();
     private HashMap<ShiftHour, List<Driver>> registeredDrivers = new HashMap<>();
 
-    public Mediator() {
+    public RestaurantMediator() {
 
     }
 
@@ -30,7 +30,11 @@ public class Mediator {
 
     }
 
-    public void pickupOrder(Driver driver, Order order) {
+    public void pickupOrder(Restaurant restaurant, Driver driver, Order order) {
+
+    }
+
+    public void deliverOrder(Driver driver, Customer customer, Order order) {
 
     }
 
