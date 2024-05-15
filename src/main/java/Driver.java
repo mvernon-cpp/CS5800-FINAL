@@ -1,15 +1,15 @@
-public class Customer {
+public class Driver {
 
     private final String name;
     private final String address;
     private final String county;
-    private final String diet;
+    private final ShiftHour shiftHour;
 
-    public Customer(String name, String address, String county, String diet) {
+    public Driver(String name, String address, String county, ShiftHour shiftHour) {
         this.name = name;
         this.address = address;
         this.county = county;
-        this.diet = diet;
+        this.shiftHour = shiftHour;
     }
 
     public String getName() {
@@ -22,5 +22,9 @@ public class Customer {
 
     public String getCounty() {
         return county;
+    }
+
+    public ShiftHour getShiftHour() {
+        return shiftHour;
     }
 }
