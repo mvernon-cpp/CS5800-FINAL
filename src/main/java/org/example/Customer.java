@@ -7,13 +7,13 @@ public class Customer {
     private String name;
     private String address;
     private String county;
-    private ArrayList<String> dietaryRestrictions;
+    private String dietaryRestriction;
 
-    public Customer(String name, String address, String county) {
+    public Customer(String name, String address, String county, String dietaryRestriction) {
         this.name = name;
         this.address = address;
         this.county = county;
-        this.dietaryRestrictions = new ArrayList<>();
+        this.dietaryRestriction = dietaryRestriction;
     }
 
     public String getName() {
@@ -28,8 +28,8 @@ public class Customer {
         return county;
     }
 
-    public ArrayList<String> getDietaryRestrictions() {
-        return dietaryRestrictions;
+    public String getDietaryRestriction() {
+        return dietaryRestriction;
     }
 
     public void setName(String name) {
@@ -43,22 +43,15 @@ public class Customer {
     public void setCounty(String county) {
         this.county = county;
     }
-
-    public void setDietaryRestrictions(String dietRestrictionType) {
-        MacronutrientFactory m = MacronutrientFactory.getInstance();
-        Macronutrient restriction = m.getMacronutrients(dietRestrictionType);
-        dietaryRestrictions = restriction.setRestriction();
+    public void setDietaryRestriction(String dietaryRestriction) {
+        this.dietaryRestriction = dietaryRestriction;
     }
 
     @Override
     public String toString()
     {
-        String tempStr = "Customer Information: " + name + "\n" + address + "\n" + county + "\nDietary restrictions: [ ";
-        for (String foodItem : dietaryRestrictions)
-        {
-            tempStr = tempStr + foodItem + " ";
-        }
-        tempStr = tempStr + "]";
+        String tempStr = "Customer Information: " + name + "\n" + address + "\n" + county + "\nDietary restriction: " + dietaryRestriction;
+
         return tempStr;
     }
 }
