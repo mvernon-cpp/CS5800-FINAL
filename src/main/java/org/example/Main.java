@@ -15,11 +15,11 @@ public class Main {
         johnDoe.setDietaryRestrictions("no restriction");
         System.out.println(johnDoe);
         System.out.println("Changing dietary restrictions for John Doe...");
-        johnDoe.setDietaryRestrictions("paleo");
+        johnDoe.setDietaryRestrictions("low carb");
         System.out.println(johnDoe);
 
-        janeDoe.setDietaryRestrictions("paleo");
-        mrSmith.setDietaryRestrictions("vegan");
-        bob.setDietaryRestrictions("nut allergy");
+        janeDoe.setDietaryRestrictions("low fat");
+        mrSmith.setDietaryRestrictions("low protein");
+        bob.setDietaryRestrictions("no restriction");
     }
 }

@@ -16,12 +16,12 @@ public class MacronutrientFactory {
         switch (dietRestrction){
             case "no restriction":
                 return new NoRestriction();
-            case "paleo":
-                return new Paleo();
-            case "vegan":
-                return new Vegan();
-            case "nut allergy":
-                return new NutAllergy();
+            case "low carb":
+                return new LowCarb();
+            case "low fat":
+                return new LowFat();
+            case "low protein":
+                return new LowProtein();
             default:
                 return null;
         }
