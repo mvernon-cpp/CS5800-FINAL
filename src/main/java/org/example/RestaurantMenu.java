@@ -7,46 +7,71 @@ import java.util.Random;
 // Basic interface for a Meal
 interface Meal {
     String getDescription();
-    String getCategory();
 }
 
-// Abstract class for different types of meals
-abstract class MealCategory implements Meal {
-    protected String description;
-    protected String category;
-
-    public MealCategory(String description, String category) {
-        this.description = description;
-        this.category = category;
-    }
-
+// Individual meal classes for Thai cuisine
+class FattyCoconutMilk implements Meal {
     @Override
     public String getDescription() {
-        return description;
+        return "Fatty Coconut Milk";
     }
+}
 
+class StickyRice implements Meal {
     @Override
-    public String getCategory() {
-        return category;
+    public String getDescription() {
+        return "Sticky Rice";
     }
 }
 
-// Specific classes for Fat, Carb, and Protein meals
-class FatMeal extends MealCategory {
-    public FatMeal(String description) {
-        super(description, "Fat");
+class GrilledChicken implements Meal {
+    @Override
+    public String getDescription() {
+        return "Grilled Chicken";
     }
 }
 
-class CarbMeal extends MealCategory {
-    public CarbMeal(String description) {
-        super(description, "Carb");
+// Individual meal classes for Mexican cuisine
+class AvocadoSalad implements Meal {
+    @Override
+    public String getDescription() {
+        return "Avocado Salad";
     }
 }
 
-class ProteinMeal extends MealCategory {
-    public ProteinMeal(String description) {
-        super(description, "Protein");
+class CornTortilla implements Meal {
+    @Override
+    public String getDescription() {
+        return "Corn Tortilla";
+    }
+}
+
+class BeefTacos implements Meal {
+    @Override
+    public String getDescription() {
+        return "Beef Tacos";
+    }
+}
+
+// Individual meal classes for Italian cuisine
+class OliveOilDrizzle implements Meal {
+    @Override
+    public String getDescription() {
+        return "Olive Oil Drizzle";
+    }
+}
+
+class PastaAglioEOlio implements Meal {
+    @Override
+    public String getDescription() {
+        return "Pasta Aglio e Olio";
+    }
+}
+
+class GrilledFish implements Meal {
+    @Override
+    public String getDescription() {
+        return "Grilled Fish";
     }
 }
 
@@ -61,11 +86,6 @@ abstract class MealDecorator implements Meal {
     @Override
     public String getDescription() {
         return decoratedMeal.getDescription() + ", " + getToppingDescription();
-    }
-
-    @Override
-    public String getCategory() {
-        return decoratedMeal.getCategory();
     }
 
     abstract String getToppingDescription();
@@ -105,38 +125,35 @@ class Bacon extends MealDecorator {
     }
 }
 
-// Cuisine manager to handle meal creation and restriction
+// Cuisine manager to handle meal creation
 class CuisineManager {
     public static List<Meal> getMeals(String cuisineType) {
         List<Meal> meals = new ArrayList<>();
         switch (cuisineType) {
             case "Thai":
-                meals.add(new FatMeal("Fatty Coconut Milk"));
-                meals.add(new CarbMeal("Sticky Rice"));
-                meals.add(new ProteinMeal("Grilled Chicken"));
+                meals.add(new FattyCoconutMilk());
+                meals.add(new StickyRice());
+                meals.add(new GrilledChicken());
                 break;
             case "Mexican":
-                meals.add(new FatMeal("Avocado Salad"));
-                meals.add(new CarbMeal("Corn Tortilla"));
-                meals.add(new ProteinMeal("Beef Tacos"));
+                meals.add(new AvocadoSalad());
+                meals.add(new CornTortilla());
+                meals.add(new BeefTacos());
                 break;
             case "Italian":
-                meals.add(new FatMeal("Olive Oil Drizzle"));
-                meals.add(new CarbMeal("Pasta Aglio e Olio"));
-                meals.add(new ProteinMeal("Grilled Fish"));
+                meals.add(new OliveOilDrizzle());
+                meals.add(new PastaAglioEOlio());
+                meals.add(new GrilledFish());
                 break;
         }
         return meals;
     }
 }
 
-// Class to randomly select a meal considering dietary restrictions
+// Class to randomly select a meal
 public class RestaurantMenu {
     public static void main(String[] args) {
-        String dietaryRestriction = "Carb"; // Example restriction
-
         List<Meal> availableMeals = CuisineManager.getMeals("Italian");
-        availableMeals.removeIf(meal -> meal.getCategory().equals(dietaryRestriction)); // Filter out restricted meal
 
         Random random = new Random();
         Meal selectedMeal = availableMeals.get(random.nextInt(availableMeals.size()));
@@ -145,6 +162,7 @@ public class RestaurantMenu {
         Meal mealWithCheese = new Cheese(selectedMeal);
         Meal mealWithAvocado = new Avocado(mealWithCheese); // Multiple toppings
 
-        System.out.println("Selected Meal: " + mealWithAvocado.getCategory() + " - " + mealWithAvocado.getDescription());
+        System.out.println("Selected Meal: " + mealWithAvocado.getDescription());
     }
 }
+
