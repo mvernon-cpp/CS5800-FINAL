@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<Meal> mealList = new ArrayList<>();
+    private List<Meal> mealList;
     private final Customer customer;
     private final Restaurant restaurant;
     private Driver driver;
@@ -62,10 +62,16 @@ public class Order {
 
     @Override
     public String toString() {
+        StringBuilder foodTempStr = new StringBuilder();
+        for(Meal meal : mealList) {
+            foodTempStr.append("\t" + meal.getDescription()).append(" (" + meal.getMacro() + ")" + "\n");
+        }
+
         String orderDetails = customer.toString() + restaurant.toString() + driver.toString() +
+                "\nFood List: \n" + foodTempStr +
                 "\nOrder creation: " + orderCreationTime.toString() +
                 "\nOrder picked up: " + orderPickupTime.toString() +
-                "\nOrder delivered: " + orderDeliveredTime.toString();
+                "\nOrder delivered: " + orderDeliveredTime.toString() + "\n";
         return orderDetails;
     }
 }

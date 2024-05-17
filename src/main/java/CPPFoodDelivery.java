@@ -27,9 +27,11 @@ public class CPPFoodDelivery {
         Restaurant restaurant = order.getRestaurant();
         if(registeredCustomers.contains(customer) && registeredRestaurants.contains(restaurant)) {
             order.setOrderCreationTime(orderTime);
-            if(restaurant.isWithinOperationalTime(orderTime) && restaurant.isInTheSameCounty(customer.getCounty())) {
+            if(restaurant.isWithinOperationalTime(orderTime)) {
                 System.out.println("Order is received by " + restaurant.getName());
                 restaurant.receiveOrder(order);
+            } else {
+                System.out.println(customer.getName() + "'s order is rejected, " + restaurant.getName() + " is not open");
             }
         }
     }

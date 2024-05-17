@@ -2,6 +2,7 @@ package RestaurantMenu;
 
 // Individual meal classes for Thai cuisine
 public class FattyCoconutMilk implements Meal {
+    private String macro = "fat";
     boolean low_fat = false;
     @Override
     public String getDescription() {
@@ -10,5 +11,11 @@ public class FattyCoconutMilk implements Meal {
 
     public void setDietaryAlternative(){
         this.low_fat = true;
+        macro = "low " + macro;
+    }
+
+    @Override
+    public String getMacro() {
+        return macro;
     }
 }

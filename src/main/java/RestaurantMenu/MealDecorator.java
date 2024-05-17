@@ -14,4 +14,9 @@ public abstract class MealDecorator implements Meal {
     }
 
     abstract String getToppingDescription();
+
+    @Override
+    public String getMacro() {
+        return decoratedMeal.getMacro();
+    }
 }

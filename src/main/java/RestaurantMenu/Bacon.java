@@ -7,6 +7,10 @@ public class Bacon extends MealDecorator {
 
     @Override
     String getToppingDescription() {
-        return "with RestaurantMenu.Bacon";
+        return "with Bacon";
+    }
+
+    public void setDietaryAlternative() {
+
     }
 }
