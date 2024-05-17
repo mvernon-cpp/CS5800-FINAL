@@ -21,11 +21,11 @@ public class Main {
         Customer zack = new Customer("Zack", "1100 N St",County.LA,"low carb",cppFoodDelivery);
         Customer gordon = new Customer("Gordon","25345 Colorado Blvd",County.LA,"low fat",cppFoodDelivery);
         Customer barry = new Customer("Barry","56 Allen Ave",County.ORANGE,"low fat",cppFoodDelivery);
-        Customer carly = new Customer("Carly","",County.ORANGE,"low protein",cppFoodDelivery);
+        Customer carly = new Customer("Carly","987 Fairfax Dr",County.ORANGE,"low protein",cppFoodDelivery);
         Customer sam = new Customer("Sam","230 Snake St",County.ORANGE,"no restriction",cppFoodDelivery);
         Customer jackson = new Customer("Jackson","809 Plane Rd",County.SAN_BERNARDINO,"low carb",cppFoodDelivery);
         Customer ellie = new Customer("Ellie","2013 University Ave",County.SAN_BERNARDINO,"low fat",cppFoodDelivery);
-        Customer joel = new Customer("Joel","4 Golf St",County.SAN_BERNARDINO,"low protein",cppFoodDelivery);
+        Customer joel = new Customer("Joel","4 Golf Dr",County.SAN_BERNARDINO,"low protein",cppFoodDelivery);
         Customer lara = new Customer("Lara","2000 Campus Ave",County.LA,"no restriction",cppFoodDelivery);
 
 
