@@ -1,21 +1,23 @@
+import java.time.LocalTime;
+
 public class Customer {
 
-    private final String name;
-    private final String address;
-    private final String county;
-    private final String diet;
-    private final RestaurantMediator restaurantMediator;
+    private String name;
+    private String address;
+    private County county;
+    private String dietaryRestriction;
+    private CPPFoodDelivery cppFoodDelivery;
 
-    public Customer(String name, String address, String county, String diet, RestaurantMediator restaurantMediator) {
+    public Customer(String name, String address, County county, String dietaryRestriction, CPPFoodDelivery cppFoodDelivery) {
         this.name = name;
         this.address = address;
         this.county = county;
-        this.diet = diet;
-        this.restaurantMediator = restaurantMediator;
+        this.dietaryRestriction = dietaryRestriction;
+        this.cppFoodDelivery = cppFoodDelivery;
     }
 
-    public void placeOrder(Restaurant restaurant, Order order) {
-        restaurantMediator.placeOrder(this, restaurant, order);
+    public void placeOrder(Order order, LocalTime orderTime) {
+        cppFoodDelivery.placeOrder(this, order, orderTime);
     }
 
     public String getName() {
@@ -26,7 +28,35 @@ public class Customer {
         return address;
     }
 
-    public String getCounty() {
+    public County getCounty() {
         return county;
+    }
+
+    public String getDietaryRestriction() {
+        return dietaryRestriction;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCounty(County county) {
+        this.county = county;
+    }
+    public void setDietaryRestriction(String dietaryRestriction) {
+        this.dietaryRestriction = dietaryRestriction;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Customer: " + name +
+                "\n\tAddress: " + address +
+                "\n\tCounty: " + county +
+                "\n\tDietary Restriction: " + dietaryRestriction;
     }
 }
