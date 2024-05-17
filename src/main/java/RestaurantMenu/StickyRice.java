@@ -1,6 +1,7 @@
 package RestaurantMenu;
 
 public class StickyRice implements Meal {
+    private String macro = "carb";
     boolean low_carb = false;
     @Override
     public String getDescription() {
@@ -9,5 +10,10 @@ public class StickyRice implements Meal {
 
     public void setDietaryAlternative(){
         this.low_carb = true;
+    }
+
+    @Override
+    public String getMacro() {
+        return macro;
     }
 }

@@ -1,6 +1,7 @@
 package RestaurantMenu;
 
 public class GrilledChicken implements Meal {
+    private String macro = "protein";
     boolean low_protein = false;
     @Override
     public String getDescription() {
@@ -9,5 +10,10 @@ public class GrilledChicken implements Meal {
 
     public void setDietaryAlternative(){
         this.low_protein = true;
+    }
+
+    @Override
+    public String getMacro() {
+        return macro;
     }
 }
