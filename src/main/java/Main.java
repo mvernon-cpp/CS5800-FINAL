@@ -1,7 +1,6 @@
 
-import RestaurantMenu.Cheese;
-import RestaurantMenu.GrilledChicken;
-import RestaurantMenu.Meal;
+import RestaurantMenu.*;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +13,8 @@ public class Main {
 
         Restaurant restaurantA = new Restaurant("Taco Bell", "456 King St", County.LA, "Mexican", 8, 21, cppFoodDelivery);
         Restaurant restaurantB = new Restaurant("Eataly","123 S Dr", County.ORANGE,"Italian",11,22,cppFoodDelivery);
-        Restaurant restaurantC = new Restaurant("Thai Thyme", "360 X St",County.SAN_BERNARDINO,"Thai",12,24,cppFoodDelivery);
-        Restaurant restaurantD = new Restaurant("Taco Bout It","2020 Max Ave",County.LA,"Mexico",10,21,cppFoodDelivery);
+        Restaurant restaurantC = new Restaurant("Thai Thyme", "360 X St",County.SAN_BERNARDINO,"Thai",12,23,cppFoodDelivery);
+        Restaurant restaurantD = new Restaurant("Taco Bout It","2020 Max Ave",County.LA,"Mexican",10,21,cppFoodDelivery);
 
         Customer jack = new Customer("Jack", "123 Jack's Street", County.LA, "no restriction", cppFoodDelivery);
         Customer zack = new Customer("Zack", "1100 N St",County.LA,"low carb",cppFoodDelivery);
@@ -62,11 +61,48 @@ public class Main {
         cppFoodDelivery.registerDriver(melissa);
         cppFoodDelivery.registerDriver(alyssa);
 
-        List<Meal> jackOrder = new ArrayList<>();
-        jackOrder.add(new Cheese(new GrilledChicken()));
+        List<Meal> jackMealList = new ArrayList<>();
+        jackMealList.add(new Cheese(new GrilledChicken()));
 
-        Order newOrder = new Order(jack, restaurantA, jackOrder);
+        Order jackOrder = new Order(jack, restaurantA, jackMealList);
 
-        jack.placeOrder(newOrder, LocalTime.of(10,0));
+        jack.placeOrder(jackOrder, LocalTime.of(10,0));
+
+
+        List<Meal> zackMealList = CuisineManager.getMeals("Italian");
+        Order zackOrder = new Order(zack, restaurantB, zackMealList);
+        zack.placeOrder(zackOrder, LocalTime.of(14,0));
+
+        List<Meal> gordonMealList = CuisineManager.getMeals("Thai");
+        Order gordonOrder = new Order(gordon, restaurantC, gordonMealList);
+        gordon.placeOrder(gordonOrder, LocalTime.of(18,0));
+
+        List<Meal> jacksonMealList = new ArrayList<>();
+        jackMealList.add(new AvocadoSalad());
+        jackMealList.add(new Cheese(new CornTortilla()));
+        Order jacksonOrder = new Order(jackson, restaurantA, jacksonMealList);
+        jackson.placeOrder(jacksonOrder, LocalTime.of(10,0));
+
+
+        List<Meal> samMealList = new ArrayList<>();
+        samMealList.add(new FattyCoconutMilk());
+        samMealList.add(new StickyRice());
+        Order samOrder = new Order(sam, restaurantC, samMealList);
+        sam.placeOrder(samOrder, LocalTime.of(10,0));
+
+        List<Meal> barryMealList = CuisineManager.getMeals("Mexican");
+        Order barryOrder = new Order(barry, restaurantA, barryMealList);
+
+        List<Meal> carlyMealList = CuisineManager.getMeals("Italian");
+        Order carlyOrder = new Order(carly, restaurantB, carlyMealList);
+
+        List<Meal> laraMealList = CuisineManager.getMeals("Thai");
+        Order laraOrder = new Order(lara, restaurantC, laraMealList);
+
+        barry.placeOrder(barryOrder, LocalTime.of(8,0));
+        carly.placeOrder(carlyOrder, LocalTime.of(11, 0));
+        lara.placeOrder(laraOrder, LocalTime.of(23,0));
+
+
     }
 }

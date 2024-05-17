@@ -9,4 +9,8 @@ public class Bacon extends MealDecorator {
     String getToppingDescription() {
         return "with RestaurantMenu.Bacon";
     }
+
+    public void setDietaryAlternative() {
+
+    }
 }

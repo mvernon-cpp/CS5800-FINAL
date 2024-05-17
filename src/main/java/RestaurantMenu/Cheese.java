@@ -10,4 +10,8 @@ public class Cheese extends MealDecorator {
     String getToppingDescription() {
         return "with RestaurantMenu.Cheese";
     }
+
+    public void setDietaryAlternative() {
+
+    }
 }

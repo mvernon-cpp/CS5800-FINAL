@@ -9,4 +9,9 @@ public class Avocado extends MealDecorator {
     String getToppingDescription() {
         return "with RestaurantMenu.Avocado";
     }
+
+    @Override
+    public void setDietaryAlternative() {
+
+    }
 }
