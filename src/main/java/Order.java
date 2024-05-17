@@ -1,10 +1,11 @@
-import java.time.LocalDateTime;
+import RestaurantMenu.Meal;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private List<Food> foodList = new ArrayList<>();
+    private List<Meal> mealList = new ArrayList<>();
     private final Customer customer;
     private final Restaurant restaurant;
     private Driver driver;
@@ -13,10 +14,10 @@ public class Order {
     private LocalTime orderDeliveredTime;
 
 
-    public Order(Customer customer, Restaurant restaurant, List<Food> foodList) {
+    public Order(Customer customer, Restaurant restaurant, List<Meal> foodList) {
         this.customer = customer;
         this.restaurant = restaurant;
-        this.foodList = foodList;
+        this.mealList = foodList;
     }
 
     public void setOrderCreationTime(LocalTime time) {
@@ -31,8 +32,8 @@ public class Order {
         this.orderDeliveredTime = time;
     }
 
-    public List<Food> getFoodList() {
-        return foodList;
+    public List<Meal> getMealList() {
+        return mealList;
     }
 
     public void setDriver(Driver driver) {

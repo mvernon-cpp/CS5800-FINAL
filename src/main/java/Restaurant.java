@@ -1,3 +1,5 @@
+import RestaurantMenu.Meal;
+
 import java.time.LocalTime;
 import java.util.List;
 
@@ -19,8 +21,8 @@ public class Restaurant {
     }
 
     public void receiveOrder(Order order) {
-        List<Food> foodList = order.getFoodList();
-        for(Food food : foodList) {
+        List<Meal> mealList = order.getMealList();
+        for(Meal meal : mealList) {
             // alter macros
         }
         order.setOrderPickupTime(RandomTimeUtil.addRandomMinutes(order.getOrderCreationTime()));
