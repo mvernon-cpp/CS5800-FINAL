@@ -6,7 +6,7 @@ import java.util.Collections;
 public class NoRestriction extends Macronutrient {
 
     @Override
-    ArrayList<String> setRestriction()
+    public ArrayList<String> setRestriction()
     {
         ArrayList<String> noDietaryRestrictions = new ArrayList<>();
 
