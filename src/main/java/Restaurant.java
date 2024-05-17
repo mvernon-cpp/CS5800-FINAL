@@ -1,6 +1,5 @@
 import java.time.LocalTime;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 
 public class Restaurant {
     private final String name;
@@ -9,7 +8,6 @@ public class Restaurant {
     private final String cuisine;
     private final OperationalTime operationalTime;
     private final CPPFoodDelivery cppFoodDelivery;
-    private Queue<Order> orders = new LinkedList<>();
 
     public Restaurant(String name, String address, County county, String cuisine, int openHour, int closeHour, CPPFoodDelivery cppFoodDelivery) {
         this.name = name;
@@ -21,18 +19,12 @@ public class Restaurant {
     }
 
     public void receiveOrder(Order order) {
-        orders.add(order);
-    }
-
-    public void processAnOrder() {
-        if(orders.isEmpty()) {
-            System.out.println(name + " has no ongoing orders");
-            return;
+        List<Food> foodList = order.getFoodList();
+        for(Food food : foodList) {
+            // alter macros
         }
-        Order currentOrder = orders.remove();
-        // manipulate macros
-        System.out.println("Processing an order for " + currentOrder.getCustomer().getName());
-        cppFoodDelivery.sendPickupOrder(this, currentOrder);
+        order.setOrderPickupTime(RandomTimeUtil.addRandomMinutes(order.getOrderCreationTime()));
+        cppFoodDelivery.pickUpOrder(this, order);
     }
 
     public boolean isWithinOperationalTime(LocalTime timeToCompare) {

@@ -31,6 +31,10 @@ public class Order {
         this.orderDeliveredTime = time;
     }
 
+    public List<Food> getFoodList() {
+        return foodList;
+    }
+
     public void setDriver(Driver driver) {
         this.driver = driver;
     }
