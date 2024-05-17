@@ -11,6 +11,7 @@ public class AvocadoSalad implements Meal {
 
     public void setDietaryAlternative(){
         this.low_fat = true;
+        macro = "low " + macro;
     }
 
     @Override

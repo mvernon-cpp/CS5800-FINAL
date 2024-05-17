@@ -10,8 +10,10 @@ public class GrilledFish implements Meal {
 
     public void setDietaryAlternative(){
         this.low_protein = true;
+        macro = "low " + macro;
     }
 
+    @Override
     public String getMacro() {
         return macro;
     }

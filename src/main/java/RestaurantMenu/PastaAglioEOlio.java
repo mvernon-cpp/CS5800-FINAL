@@ -10,6 +10,7 @@ public class PastaAglioEOlio implements Meal {
 
     public void setDietaryAlternative(){
         this.low_carb = true;
+        macro = "low " + macro;
     }
 
     @Override

@@ -4,6 +4,5 @@ package RestaurantMenu;
 public interface Meal {
     String getDescription();
     void setDietaryAlternative();
-
     String getMacro();
 }

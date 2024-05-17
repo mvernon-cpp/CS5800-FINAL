@@ -11,15 +11,11 @@ public class CornTortilla implements Meal {
 
     public void setDietaryAlternative(){
         this.low_carb = true;
+        macro = "low " + macro;
     }
 
     @Override
     public String getMacro() {
-        if(low_carb) {
-            return "low carb";
-        } else {
-            return macro;
-        }
-
+        return macro;
     }
 }

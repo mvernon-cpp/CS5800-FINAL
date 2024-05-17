@@ -10,6 +10,7 @@ public class GrilledChicken implements Meal {
 
     public void setDietaryAlternative(){
         this.low_protein = true;
+        macro = "low " + macro;
     }
 
     @Override
