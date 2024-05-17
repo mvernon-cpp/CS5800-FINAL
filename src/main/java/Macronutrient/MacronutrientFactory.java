@@ -12,8 +12,8 @@ public class MacronutrientFactory {
 
     }
 
-    public static Macronutrient getMacronutrients(String dietRestrction) {
-        switch (dietRestrction){
+    public static Macronutrient getMacronutrients(String dietRestriction) {
+        switch (dietRestriction){
             case "no restriction":
                 return new NoRestriction();
             case "low carb":

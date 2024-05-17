@@ -1,6 +1,8 @@
+import Macronutrient.MacronutrientFactory;
 import RestaurantMenu.Meal;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
@@ -10,6 +12,7 @@ public class Restaurant {
     private final String cuisine;
     private final OperationalTime operationalTime;
     private final CPPFoodDelivery cppFoodDelivery;
+    private MacronutrientFactory macronutrientFactory;
 
     public Restaurant(String name, String address, County county, String cuisine, int openHour, int closeHour, CPPFoodDelivery cppFoodDelivery) {
         this.name = name;
@@ -18,12 +21,18 @@ public class Restaurant {
         this.cuisine = cuisine;
         this.operationalTime = new OperationalTime(openHour, closeHour);
         this.cppFoodDelivery = cppFoodDelivery;
+        this.macronutrientFactory = MacronutrientFactory.getInstance();
     }
 
     public void receiveOrder(Order order) {
         List<Meal> mealList = order.getMealList();
         for(Meal meal : mealList) {
             // alter macros
+            ArrayList<String> restriction_list = this.macronutrientFactory.getMacronutrients(order.getCustomer().getDietaryRestriction()).setRestriction();
+            if(restriction_list.contains(meal.getDescription())){
+                meal.setDietaryAlternative();
+            }
+
         }
         order.setOrderPickupTime(RandomTimeUtil.addRandomMinutes(order.getOrderCreationTime()));
         cppFoodDelivery.pickUpOrder(this, order);

@@ -6,7 +6,7 @@ import java.util.Collections;
 public class LowCarb extends Macronutrient{
 
     @Override
-    ArrayList<String> setRestriction() {
+    public ArrayList<String> setRestriction() {
         ArrayList<String> lowCarb = new ArrayList<>();
 
         String[] carbs={"Sticky Rice", "Corn Tortilla", "Pasta Aglio e Olio"};
