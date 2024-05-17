@@ -1,5 +1,11 @@
+
+import RestaurantMenu.Cheese;
+import RestaurantMenu.GrilledChicken;
+import RestaurantMenu.Meal;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -14,7 +20,10 @@ public class Main {
         cppFoodDelivery.registerRestaurant(restaurantA);
         cppFoodDelivery.registerDriver(bob);
 
-        Order newOrder = new Order(jack, restaurantA, List.of(new Food("Burger")));
+        List<Meal> jackOrder = new ArrayList<>();
+        jackOrder.add(new Cheese(new GrilledChicken()));
+
+        Order newOrder = new Order(jack, restaurantA, jackOrder);
 
         jack.placeOrder(newOrder, LocalTime.of(10,0));
     }
